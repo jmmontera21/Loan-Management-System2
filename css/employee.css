@@ -1,0 +1,791 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+}
+
+img {
+    width: 30px;
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+.sidebar {
+    width: 220px;
+    background-color: #2c3e50;
+    color: #fff;
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    border-bottom: 3px solid #ffffff;
+    padding: 5px 0;
+}
+
+.dropright-icon {
+    background-color: #3a5875;
+    padding: 0;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 2em;
+    padding: 5px;
+}
+
+/* Sidebar toggle styles */
+.sidebar.minimized {
+    width: 80px;
+}
+
+.sidebar-header {
+    cursor: pointer;
+}
+
+/* Dropdown menu styles */
+.user {
+    margin-right: 20px;
+    position: relative;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 1;
+    background-color: #34495e;
+    min-width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: #ffffff;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #1f2a44;
+}
+
+.user .dropdown-content.show {
+    display: block;
+}
+
+.role {
+    text-align: center;
+    background-color: #2c3e50;
+    font-size: 1.5em;
+    font-weight: bold;
+    border: 0 0 3px 0 solid;
+    width: 30vh;
+    color: #ffffff;
+}
+
+.nav-links {
+    list-style-type: none;
+    margin-top: 50px;
+    padding: 0;
+}
+
+.nav-item {
+    margin: 10px 0;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.nav-link .icon {
+    margin-right: 10px;
+}
+
+.nav-link.active, .nav-link:hover {
+    background-color: #34495e;
+    color: white;
+}
+
+.main-content {
+    flex-grow: 1;
+    background-color: #ecf0f1;
+    overflow-x: scroll;
+    height: 100vh;
+}
+
+main h2 {
+    margin: 30px 20px 0 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px 0px 20px 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+header h1 {
+    font-size: 1.5em;
+}
+
+.user-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.notification {
+    position: relative;
+    margin-right: 20px;
+}
+
+.notification .icon {
+    font-size: 1.5em;
+}
+
+.notification .badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: red;
+    color: #fff;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.75em;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-icon {
+    background-color: #34495e;
+    padding: 10px;
+    color: #ffffff;
+}
+
+.username {
+    text-align: center;
+    background-color: #1f2a44;
+    width: 30vh;
+    padding: 10px;
+    color: #ffffff;
+}
+
+.cards {
+    padding: 10px;
+    justify-content: space-between;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    height: auto;
+    margin: 10px 20px 0 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+.cards2 {
+    padding: 10px;
+    justify-content: space-between;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    height: auto;
+    margin: 10px 20px 0 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+.table-container {
+    overflow-y: scroll;
+    max-height: 500px; /* Adjust this height as needed */
+}
+
+.card {
+    flex: 1;
+    text-align: center;
+    padding: 20px;
+    margin: 5px;
+    border-radius: 10px;
+    color: white;
+}
+
+.cards-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.charts-container {
+    display: flex;
+}
+
+.chart {
+    flex: 1;
+    padding: 10px;
+}
+
+#statusChart, #loanTypeChart {
+    max-width: 100%;
+    height: 300px;
+}
+
+.chart:nth-child(1) {
+    flex: 2; /* Give more space to the line chart */
+}
+
+.chart:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Make this column take equal space as the line chart */
+}
+
+#myChart {
+    margin-bottom: 20px; /* Add some space between the bar and doughnut chart */
+}
+
+.card-content {
+    text-align: center;
+}
+
+.card-content h3 {
+    margin-bottom: 10px;
+}
+
+.card-content h2 {
+    font-size: 2em;
+    margin-bottom: 0;
+}
+
+button {
+    display: flex;
+    justify-content: center;
+    width: auto;
+    font-weight: bold;
+    padding: 8px 16px;
+    background-color: green;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    margin: 10px 0 0 20px;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+    position: sticky;
+    top: 0;
+}
+
+/* General Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 4.5% 0 0 30%; /* 15% from the top and centered */
+    padding: 13px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    max-width: 600px; /* Max width for the modal content */
+    position: relative; /* Added for positioning the close button */
+}
+
+.close {
+    color: #aaa;
+    position: absolute; /* Positioning the close button */
+    top: 10px;
+    right: 20px; /* Adjusted to be inside the modal content */
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer; /* Added cursor pointer */
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+/* Form Styles */
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    position: relative; /* Ensure the form content is relative to the modal content */
+    margin-top: 40px; /* Add margin to push form fields below the close button */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 45%;
+}
+
+form textarea {
+    resize: vertical;
+    height: 20vh;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.form-group.image-upload {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 20px;
+}
+
+.upload-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.upload-wrapper input[type="file"] {
+    display: none;
+}
+
+.upload-wrapper label {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.upload-wrapper label:hover {
+    background-color: #0056b3;
+}
+
+.image-placeholder {
+    width: 100px;
+    height: 100px;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+.image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.form-group.button-group {
+    grid-column: span 2;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.form-group.button-group2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button.save-changes, .calculatebutton {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button.save-changes:hover {
+    background-color: #218838;
+}
+
+.calculatebutton {
+    margin-left: -1px;
+    background-color: #001f5b;
+    width: 45%;
+}
+
+
+/*CSS for employee_customers*/
+.alert {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px;
+    z-index: 1000;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.alert.show {
+    display: block;
+}
+.button-edit {
+    background-color: blue;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.button-delete {
+    background-color: red;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.button-edit:hover {
+    background-color: darkblue;
+}
+.button-delete:hover {
+    background-color: darkred;
+}
+
+.btns button {
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    padding: 5px;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.add-btn {
+    background-color: green;
+    color: black;
+}
+
+.edit-btn {
+    background-color: blue;
+    color: black;
+}
+
+.delete-btn {
+    background-color: red;
+    color: black;
+}
+
+/*Employee Payments*/
+.modal-content2 {
+    background-color: #fff;
+    padding: 20px;
+    background-color: #fefefe;
+    margin: 6% 0 0 40%; /* 15% from the top and centered */
+    border: 1px solid #888;
+    width: 40%; /* Could be more or less, depending on screen size */
+    max-width: 400px; /* Max width for the modal content */
+    position: relative; /* Added for positioning the close button */
+}
+
+.form-group2 {
+    display: flex;
+    flex-direction: column;
+    grid-column: span 2;
+}
+
+form input[type="text"],
+form input[type="number"],
+form select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 100%;
+}
+
+.form-group2 button-group {
+    grid-column: span 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button.save-changes2 {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 40%;
+}
+
+button.save-changes2:hover {
+    background-color: #218838;
+}
+
+/*CSS for loan plans*/
+.form-container {
+    float: left;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    width: 25%;
+    margin: 20px 0px 0px 20px;
+}
+.form-container h2 {
+    margin-top: 0;
+}
+.form-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.form-container input {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.form-container button {
+    width: 80%;
+    padding: 10px;
+    background-color: #0044cc;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+}
+.form-container button:hover {
+    background-color: #003399;
+}
+.table-container2 {
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    flex-grow: 1;
+    margin: 20px 20px 0px 0px;
+    float:right;
+    width: 69%;
+}
+.table-container2 table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.table-container2 th {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.table-container2 td {
+    padding: 5px;
+}
+
+.table-container2 th {
+    background-color: #f8f8f8;
+}
+.action-button {
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+.action-button.edit {
+    color: green;
+}
+.action-button.delete {
+    color: red;
+}
+
+.status-for-approval {
+    color: blue;
+}
+
+.status-approved {
+    color: green;
+}
+
+.status-released {
+    color: orange;
+}
+
+.status-rejected {
+    color: red;
+}
+
+/**CSS Add Loan Information**/
+.pensioner-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.pensioner-form h2 {
+    grid-column: span 2;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    text-decoration: underline;
+}
+
+.form-group1 {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group1 label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group1 input, .form-group1 select {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.form-buttons {
+    grid-column: span 2;
+    display: flex;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.btn-prev, .btn-next {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.btn-prev {
+    background-color: #da2923;
+    color: #fff;
+}
+
+.btn-next {
+    background-color: #2fb62f;
+    color: #fff;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: 10px;
+} 
+  
+.checkbox-group label {
+    margin-right: 15px;
+} /* Adjust spacing as needed */
+
+  
+.checkbox-group input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+input[type="text"], input[type="date"], select {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+input[type="checkbox"] + label {
+    margin-right: 10px;
+}
+
+.search-btn button {
+    display: flex;
+    justify-content: center;
+    width: 10%;
+    padding: 8px;
+    margin-bottom: 15px;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    text-decoration: none;
+    background-color: #2c3e50;
+}
+
+.notification-success {
+    background-color: #28a745;
+    color: white;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+
+
